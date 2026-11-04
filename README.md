@@ -2,7 +2,7 @@
 
 * Applying to new data, Data must include at least the following two components: a raw gene–cell expression matrix and cell type annotations.
 * Unless unavoidable circumstances arise, the **h5ad** format is recommended.
-* During training, the model uses the **cell_type** column in **obs** from the h5ad file. The resulting embeddings are stored in **result["features"]**, which can then be saved in **.obsm** for further downstream task.
+* During training, the model uses the **cell_type** column in **obs** from the h5ad file. The resulting embeddings are stored in **result["features"]**, which can then be saved in **.h5ad** for further downstream task.
 
 
 ## Training D-MELT
