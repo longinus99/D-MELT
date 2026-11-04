@@ -30,4 +30,4 @@ Many settings for training and model configuration are managed in `config.py`. T
 - `--dropout`: Dropout rate (default: 0.9)
 - `--temperature`: Sharpness of similarity scores for instance-level contrastive module (default: 0.07)
 
-These arguments allow for flexible configuration of the training process and are parsed using Python's `argparse` module. For contrastive learning, larger batch sizes tend to improve training stability. 
+These arguments allow for flexible configuration of the training process and are parsed using Python's `argparse` module.
