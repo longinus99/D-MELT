@@ -25,23 +25,33 @@ D-MELT is a two-stage deep clustering framework for scRNA-seq data that combines
 
 ## 🗃️ Data
 
-| Dataset | Source |
-| --- | --- |
-| 10X PBMC | [10x Genomics](https://www.10xgenomics.com/resources/datasets/3-k-pbm-cs-from-a-healthy-donor-1-standard-1-1-0) |
-| Darmanis | [GSE67835](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE67835) |
-| Camp1 | [GSE81252](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE81252) |
-| Segerstolpe | [BioStudies · E-MTAB-5061](https://www.ebi.ac.uk/biostudies/arrayexpress/studies/E-MTAB-5061) |
-| Klein | [GSE65525](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE65525) |
-| Adam | [GSE94333](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE94333) |
-| Melanoma | [GSE115978](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE115978) |
-| Baron | [GSE84133](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE84133) |
-| Slyper | [Single Cell Portal · SCP345](https://singlecell.broadinstitute.org/single_cell/study/SCP345) |
-| Chen | [GSE87544](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE87544) |
-| Bhattacherjee | [GSE124952](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE124952) |
-| Ghanem | [GSE189120](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE189120) |
-| Zilionis | [GSE127465](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE127465) |
-| HNSCC | [GSE181919](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE181919) |
-| Orozco | [GSE135133](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE135133) |
+<table>
+  <tr>
+    <td><a href="https://www.10xgenomics.com/resources/datasets/3-k-pbm-cs-from-a-healthy-donor-1-standard-1-1-0">10X PBMC</a></td>
+    <td><a href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE67835">Darmanis</a></td>
+    <td><a href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE81252">Camp1</a></td>
+  </tr>
+  <tr>
+    <td><a href="https://www.ebi.ac.uk/biostudies/arrayexpress/studies/E-MTAB-5061">Segerstolpe</a></td>
+    <td><a href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE65525">Klein</a></td>
+    <td><a href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE94333">Adam</a></td>
+  </tr>
+  <tr>
+    <td><a href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE115978">Melanoma</a></td>
+    <td><a href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE84133">Baron</a></td>
+    <td><a href="https://singlecell.broadinstitute.org/single_cell/study/SCP345">Slyper</a></td>
+  </tr>
+  <tr>
+    <td><a href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE87544">Chen</a></td>
+    <td><a href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE124952">Bhattacherjee</a></td>
+    <td><a href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE189120">Ghanem</a></td>
+  </tr>
+  <tr>
+    <td><a href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE127465">Zilionis</a></td>
+    <td><a href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE181919">HNSCC</a></td>
+    <td><a href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE135133">Orozco</a></td>
+  </tr>
+</table>
 
 ## 🧰 Input format
 
