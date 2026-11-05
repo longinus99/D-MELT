@@ -57,7 +57,13 @@ To save embeddings and assignments in an `.h5ad` file, enable the commented AnnD
 
 
 ## 📦 Installation
-
+```bash
+git clone https://github.com/longinus99/D-MELT.git
+cd D-MELT
+conda env create -f environment.yml
+conda activate D-MELT
+cd model
+```
 ## 🚀 Training D-MELT
 
 
