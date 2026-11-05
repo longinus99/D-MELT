@@ -89,6 +89,7 @@ Many settings for training and model configuration are managed in `config.py`. T
 - `--cuda`: Cuda (default: 0)
 - `--epoch`: Number of training epochs (default: 200)
 - `--dropout`: Dropout rate (default: 0.9)
+- `--temperature`: 
 
 
 ## 🗂️ Repository
