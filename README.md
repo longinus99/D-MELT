@@ -14,6 +14,26 @@ D-MELT is a two-stage deep clustering framework for scRNA-seq data that combines
 <img width="3542" height="1878" alt="Fig" src="https://github.com/user-attachments/assets/c30ce74e-cb3c-4e5a-83ca-0b698e3ad00e" />
 
 
+## 🗃️ Data
+
+| Dataset | Source |
+| --- | --- |
+| 10X PBMC | [10x Genomics](https://www.10xgenomics.com/resources/datasets/3-k-pbm-cs-from-a-healthy-donor-1-standard-1-1-0) |
+| Darmanis | [GSE67835](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE67835) |
+| Camp1 | [GSE81252](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE81252) |
+| Segerstolpe | [BioStudies · E-MTAB-5061](https://www.ebi.ac.uk/biostudies/arrayexpress/studies/E-MTAB-5061) |
+| Klein | [GSE65525](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE65525) |
+| Adam | [GSE94333](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE94333) |
+| Melanoma | [GSE115978](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE115978) |
+| Baron | [GSE84133](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE84133) |
+| Slyper | [Single Cell Portal · SCP345](https://singlecell.broadinstitute.org/single_cell/study/SCP345) |
+| Chen | [GSE87544](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE87544) |
+| Bhattacherjee | [GSE124952](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE124952) |
+| Ghanem | [GSE189120](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE189120) |
+| Zilionis | [GSE127465](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE127465) |
+| HNSCC | [GSE181919](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE181919) |
+| Orozco | [GSE135133](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE135133) |
+
 ## 🧰 Input format
 
 
@@ -57,13 +77,16 @@ To save embeddings and assignments in an `.h5ad` file, enable the commented AnnD
 
 
 ## 📦 Installation
+
+Create and activate the Conda environment using [`environment.yml`](environment.yml) to install the dependencies.
+
 ```bash
 git clone https://github.com/longinus99/D-MELT.git
 cd D-MELT
 conda env create -f environment.yml
 conda activate D-MELT
-cd model
 ```
+
 ## 🚀 Training D-MELT
 
 
@@ -89,7 +112,29 @@ Many settings for training and model configuration are managed in `config.py`. T
 - `--cuda`: Cuda (default: 0)
 - `--epoch`: Number of training epochs (default: 200)
 - `--dropout`: Dropout rate (default: 0.9)
-- `--temperature`: 
+- `--temperature` (default: `0.07`) scales similarity logits in the instance-level contrastive loss. Lower values make the softmax distribution sharper.
 
+
+## Dataset-specific parameter settings
+
+All datasets used `--phi 0.95`. HNSCC used `--dropout 0.95`. All other datasets used the default dropout.
+
+| Dataset | `--temperature` |
+| --- | --- |
+| 10X PBMC | 0.10 |
+| Darmanis | 0.07 |
+| Camp1 | 0.06 |
+| Segerstolpe | 0.10 |
+| Klein | 0.05 |
+| Adam | 0.10 |
+| Melanoma | 0.70 |
+| Baron | 0.70 |
+| Slyper | 0.90 |
+| Chen | 0.50 |
+| Bhattacherjee | 1.00 |
+| Ghanem | 0.90 |
+| Zilionis | 1.00 |
+| HNSCC | 0.90 |
+| Orozco | 0.90 |
 
 ## 🗂️ Repository
