@@ -104,7 +104,7 @@ python main.py --name 10X_PBMC
 Replace `10X_PBMC` with your dataset name without the extension, and set `--label_key` to the annotation column in `adata.obs`.
 
 
-## Recommended Hyperparameters of D-MELT
+## ⚙️ Recommended Hyperparameters of D-MELT
 Many settings for training and model configuration are managed in `config.py`. This includes parameters such as the dataset name, number of training epochs, number of genes to select (`--select_gene`), learning rate, dropout rate, and more. For example, the following parameters are defined:
 
 
@@ -131,4 +131,4 @@ All datasets used `--phi 0.95`. HNSCC used `--dropout 0.95`. All other datasets 
 | --- | --- | --- | --- | --- | --- |
 | `--temperature` | 1.00 | 0.90 | 1.00 | 0.90 | 0.90 |
 
-## 🗂️ Repository
+## 📖 Citation
