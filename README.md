@@ -113,11 +113,12 @@ Many settings for training and model configuration are managed in `config.py`. T
 - `--epoch`: Number of training epochs (default: 200)
 - `--dropout`: Dropout rate (default: 0.9)
 - `--temperature` (default: `0.07`) scales similarity logits in the instance-level contrastive loss. Lower values make the softmax distribution sharper.
+- `--phi` (default: `0.95`) sets the similarity threshold for filtering potential false negatives in the instance-level contrastive loss.
 
 
 ## 🎛️ Dataset-specific parameter settings
 
-All datasets used `--phi 0.95`. HNSCC used `--dropout 0.95`. All other datasets used the default dropout.
+HNSCC used `--dropout 0.95`. All other datasets used the default dropout.
 
 | Parameter | 10X PBMC | Darmanis | Camp1 | Segerstolpe | Klein |
 | --- | --- | --- | --- | --- | --- |
