@@ -25,6 +25,8 @@ D-MELT is a two-stage deep clustering framework for scRNA-seq data that combines
 
 ## 🗃️ Data
 
+We evaluated D-MELT on 15 publicly available scRNA-seq datasets. Click a dataset name below to open its source page.
+
 <table>
   <tr>
     <td><a href="https://www.10xgenomics.com/resources/datasets/3-k-pbm-cs-from-a-healthy-donor-1-standard-1-1-0">10X PBMC</a></td>
