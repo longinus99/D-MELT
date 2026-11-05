@@ -119,8 +119,16 @@ Many settings for training and model configuration are managed in `config.py`. T
 
 All datasets used `--phi 0.95`. HNSCC used `--dropout 0.95`. All other datasets used the default dropout.
 
-| Parameter | 10X PBMC | Darmanis | Camp1 | Segerstolpe | Klein | Adam | Melanoma | Baron | Slyper | Chen | Bhattacherjee | Ghanem | Zilionis | HNSCC | Orozco |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| `--temperature` | 0.10 | 0.07 | 0.06 | 0.10 | 0.05 | 0.10 | 0.70 | 0.70 | 0.90 | 0.50 | 1.00 | 0.90 | 1.00 | 0.90 | 0.90 |
+| Parameter | 10X PBMC | Darmanis | Camp1 | Segerstolpe | Klein |
+| --- | --- | --- | --- | --- | --- |
+| `--temperature` | 0.10 | 0.07 | 0.06 | 0.10 | 0.05 |
+
+| Parameter | Adam | Melanoma | Baron | Slyper | Chen |
+| --- | --- | --- | --- | --- | --- |
+| `--temperature` | 0.10 | 0.70 | 0.70 | 0.90 | 0.50 |
+
+| Parameter | Bhattacherjee | Ghanem | Zilionis | HNSCC | Orozco |
+| --- | --- | --- | --- | --- | --- |
+| `--temperature` | 1.00 | 0.90 | 1.00 | 0.90 | 0.90 |
 
 ## 🗂️ Repository
