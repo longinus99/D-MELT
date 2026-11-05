@@ -1,8 +1,5 @@
 # D-MELT: Dirichlet process Mixture-guided Embedding Learning via Two-stage training for scRNA-seq Clustering 🧊
 
-
-
-
 ## 🧊 Model overview
 
 D-MELT is a two-stage deep clustering framework for scRNA-seq data that combines contrastive representation learning with a Dirichlet process mixture model (DPMM). It learns cell embeddings while accounting for similarities between cells and infers the number of clusters from the learned representations.
@@ -12,51 +9,68 @@ D-MELT is a two-stage deep clustering framework for scRNA-seq data that combines
 
 <img width="3542" height="1878" alt="Fig" src="https://github.com/user-attachments/assets/c30ce74e-cb3c-4e5a-83ca-0b698e3ad00e" />
 
+## 🧰 Input format
 
+We recommend one AnnData (`.h5ad`) file per dataset, with cells as rows and genes as columns.
 
+| Field | Content |
+| --- | --- |
+| `adata.X` | Raw gene expression counts, **cells × genes**; preprocessing is applied by the loader. |
+| `adata.obs["cell_type"]` | Reference cell-type annotations required by the current training script for evaluation. Use `--label_key` to select another column. |
 
+The loader also supports the following formats:
 
+| Format | Expression matrix | Reference labels |
+| --- | --- | --- |
+| `.h5ad` (recommended) | `adata.X` | `adata.obs[args.label_key]` (default: `cell_type`) |
+| `.h5` | `X` | `Y` |
+| `.mat` | `feature` | `label` |
 
-## Data format and output
+For `.h5` and `.mat` inputs, add the dataset name (without its extension) to `h5_datasets` or `mat_datasets` in `model/main.py`.
 
+### Outputs
 
-* Applying to new data, Data must include at least the following two components: a raw gene–cell expression matrix and cell type annotations.
-* Unless unavoidable circumstances arise, the **h5ad** format is recommended.
-* During training, the model uses the **cell_type** column in **obs** from the h5ad file. The resulting embeddings are stored in **result["features"]**, which can then be saved in **.h5ad** for further downstream task.
+`train.run(...)` returns a dictionary with the following entries:
 
+| Key | Content |
+| --- | --- |
+| `results["features"]` | Learned cell embeddings. |
+| `results["q_instance"]` | Instance embeddings (the same embeddings as `features`). |
+| `results["q_cluster"]` | Soft cluster assignments; use `argmax(axis=1)` to obtain cell labels. |
+| `results["nmi"]`, `results["ari"]` | Clustering scores against the reference annotations. |
 
+To save embeddings and assignments in an `.h5ad` file, enable the commented AnnData export block at the end of `model/main.py`.
 
+## 🚀 Training D-MELT
 
-## Training D-MELT
-We strongly recommend using the `.h5ad` file format for training D-MELT. The `.h5` and `.mat` formats are also supported. To run D-MELT follow these steps:
-1. Prepare Datasets File:<br>
-  Save your dataset file and change the `path` at `main.py` to your Data directory
-2. Configure the Dataset Type:<br>
-  In `main.py`, add the dataset name(without extension) to the appropriate list:
-    * For H5-format, add to the `h5_datasets` list.
-    * For mat-format, add to the `mat_datasets` list.
-    * For H5ad-format, you don't have to do anything.
+1. Save your dataset as `<dataset_name>.h5ad` and set `path` in `model/main.py` to the directory containing the file.
+2. For `.h5` or `.mat` files, register the dataset name in the corresponding list as described above.
+3. Run the training script from the `model/` directory:
 
+```bash
+cd model
+python main.py --name 10X_PBMC --label_key cell_type
+```
 
-3. Run the code
-   Use the command line to run script. For example, to run the 10X_PBMC dataset, execute:
-
-
-   ```bash
-   python main.py --name 10X_PBMC
-   ```
-
+Replace `10X_PBMC` with your dataset name without the extension, and set `--label_key` to the annotation column in `adata.obs`.
 
 ## Recommended Hyperparameters of D-MELT
 Many settings for training and model configuration are managed in `config.py`. This includes parameters such as the dataset name, number of training epochs, number of genes to select (`--select_gene`), learning rate, dropout rate, and more. For example, the following parameters are defined:
-
 
 - `--name`: Dataset name (default: 10X_PBMC)
 - `--cuda`: Cuda (default: 0)
 - `--epoch`: Number of training epochs (default: 200)
 - `--dropout`: Dropout rate (default: 0.9)
-- `--temperature`: Sharpness of similarity scores for instance-level contrastive module (default: 0.07)
 
+## 🗂️ Repository
 
-These arguments allow for flexible configuration of the training process and are parsed using Python's `argparse` module.
-
+| Path | Role |
+| --- | --- |
+| [`model/main.py`](model/main.py) | Entry point: load data, preprocess expression, run training, and report clustering scores. |
+| [`model/config.py`](model/config.py) | Command-line arguments for data, architecture, training, and DPMM settings. |
+| [`model/D_MELT.py`](model/D_MELT.py) | Data augmentation, encoder, instance projection, and momentum-based model. |
+| [`model/clu_head.py`](model/clu_head.py) | Attention-based cluster projection head used in the warm-up stage. |
+| [`model/loss_module.py`](model/loss_module.py) | False-negative-aware instance loss, cluster correlation loss, and DPMM fitting and regularization. |
+| [`model/train.py`](model/train.py) | Two-stage training loop, DPMM updates, and extraction of embeddings and assignments. |
+| [`model/utils.py`](model/utils.py) | Preprocessing, device selection, learning-rate scheduling, checkpoint saving, and clustering evaluation. |
+| `README.md` | Model overview, input/output specification, and usage instructions. |
