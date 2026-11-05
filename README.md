@@ -74,7 +74,7 @@ cd model
 
 ```bash
 cd model
-python main.py --name 10X_PBMC --label_key cell_type
+python main.py --name 10X_PBMC
 ```
 
 
