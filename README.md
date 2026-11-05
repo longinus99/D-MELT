@@ -1,4 +1,13 @@
-# D-MELT: Dirichlet process Mixture-guided Embedding Learning via Two-stage training for scRNA-seq Clustering 🧊
+<h1 align="center">🧊 D-MELT</h1>
+
+<h3 align="center">Dirichlet Process Mixture-Guided Embedding Learning via Two-Stage Training for scRNA-seq Clustering</h3>
+
+<p align="center"><em>Learn cell embeddings and infer the number of clusters directly from single-cell gene expression.</em></p>
+
+<p align="center">
+  <a href="environment.yml"><img alt="Python 3.7.12" src="https://img.shields.io/badge/python-3.7.12-blue"></a>
+  <a href="environment.yml"><img alt="PyTorch 1.13.1" src="https://img.shields.io/badge/PyTorch-1.13.1-ee4c2c"></a>
+</p>
 
 
 ## 🧊 Model overview
