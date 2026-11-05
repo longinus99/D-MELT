@@ -115,7 +115,7 @@ Many settings for training and model configuration are managed in `config.py`. T
 - `--temperature` (default: `0.07`) scales similarity logits in the instance-level contrastive loss. Lower values make the softmax distribution sharper.
 
 
-## Dataset-specific parameter settings
+## 🎛️ Dataset-specific parameter settings
 
 All datasets used `--phi 0.95`. HNSCC used `--dropout 0.95`. All other datasets used the default dropout.
 
