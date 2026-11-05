@@ -49,8 +49,7 @@ if __name__ == "__main__":
     h5_datasets = []
     mat_datasets = []
 
-    # path = "YOUR DATASET FOLDER PATH"
-    path = "/home/longinus723/home/Public_scRNA_seq_data/dataset"
+    path = "YOUR DATASET FOLDER PATH"
     dataset = config.args.name
     gene_exp = []
     real_label = []
