@@ -143,14 +143,14 @@ HNSCC used `--dropout 0.95`. All other datasets used the default dropout.
 
 | Parameter | 10X PBMC | Darmanis | Camp1 | Segerstolpe | Klein |
 | --- | --- | --- | --- | --- | --- |
-| `--temperature` | 0.10 | 0.07 | 0.06 | 0.10 | 0.05 |
+| `--temperature` | 0.1 | 0.07 | 0.06 | 0.1 | 0.05 |
 
 | Parameter | Adam | Melanoma | Baron | Slyper | Chen |
 | --- | --- | --- | --- | --- | --- |
-| `--temperature` | 0.10 | 0.70 | 0.70 | 0.90 | 0.50 |
+| `--temperature` | 0.1 | 0.7 | 0.7 | 0.9 | 0.5 |
 
 | Parameter | Bhattacherjee | Ghanem | Zilionis | HNSCC | Orozco |
 | --- | --- | --- | --- | --- | --- |
-| `--temperature` | 1.00 | 0.90 | 1.00 | 0.90 | 0.90 |
+| `--temperature` | 1.0 | 0.9 | 1.0 | 0.9 | 0.9 |
 
 ## 📖 Citation
